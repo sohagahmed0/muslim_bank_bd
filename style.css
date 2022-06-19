@@ -1,0 +1,31 @@
+body{
+    background-color:#50C878;
+    padding: 100px;
+}
+.bank-area{
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px black;
+    margin-top: 50px;
+    padding: 40px;
+   
+}
+#accounts{
+    display: none;
+}
+
+.status{
+    margin: 0 20px;
+    padding: 20px;
+    border-radius: 10px;
+    color: azure;
+    box-shadow: 5px 5px 20px black;
+}
+.deposite{
+    background-color: slateblue;
+}
+.withdraw{
+    background-color: lightsalmon;
+}
+.balance{
+    background-color: orange;
+}
