@@ -19,9 +19,9 @@
         <h1 class="text-center fw-bold fst-italic">Welcom To Muslim Bank BD</h1>
         <div class="bank-area">
             <h6>Login</h6>
-            <input type="email" name="" id="" class="form-control" placeholder="enter your email">
+            <input type="email" name="" id="" class="form-control" placeholder="enter your email" required>
             <br>
-            <input type="password" name="" id="" class="form-control" placeholder="enter your password">
+            <input type="password" name="" id="" class="form-control" placeholder="enter your password"required>
             <br>
             <button id="login-btn" class="btn btn-success">Submit</button>
 
@@ -58,7 +58,7 @@
             <div class="col-md-6">
                <div class="bank-area">
                     <h4>Deposite</h4>
-                    <input id="deposite-ammount" type="text" class="form-control" placeholder="$ amount you want to deposite">
+                    <input id="depositInput" type="text" class="form-control" placeholder="$ amount you want to deposite">
                     <br>
                     <button id="deposite-area" class="btn btn-success">Deposite</button>
                </div>
@@ -89,15 +89,13 @@
         // deposite btn
         const depositeBtn = document.getElementById('deposite-area');
         depositeBtn.addEventListener('click', function(){
-            // const depositeAmmount = document.getElementById('deposite-ammount').value;
+            // const depositeAmmount = document.getElementById('depositInput').value;
             // const depositeNumber = parseFloat(depositeAmmount);
-            const depositeNumber = givenInput('deposite-ammount')
+            const depositeNumber = givenInput('depositInput');
             
             updateSpanText('current-deposite',depositeNumber)
             updateSpanText('current-balance',depositeNumber)
-            blank('deposite-ammount')
-
-            // document.getElementById('deposite-ammount').value = '';
+            blank('depositInput')
 
         })
 
@@ -122,16 +120,25 @@
 
         // update text
         function updateSpanText(id, depositeNumber){
-            const current = document.getElementById(id).innerText;
-            const currentNumber = parseFloat(current);
-            const totat = depositeNumber + currentNumber;
-            document.getElementById(id).innerText = totat;
-
+            if (isNaN(depositeNumber)){
+                return 0;
+            }
+            else{
+                const current = document.getElementById(id).innerText;
+                const currentNumber = parseFloat(current);
+                const totat = depositeNumber + currentNumber;
+                document.getElementById(id).innerText = totat;
+            }
+            
+            
+            
         }
         // blank input
         function blank (id){
             document.getElementById(id).value = '';
-        } 
+            
+        }
+        
     </script>
     <!-- javaScript end -->
 </body>
